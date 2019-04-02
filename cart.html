@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ro">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Coș de cumpărături</title>
+		<link rel="stylesheet" type="text/css" href="css/stiluriCos.css">
+		<link href="https://fonts.googleapis.com/css?family=Pinyon+Script" rel="stylesheet">
+	</head>
+	<body>
+		<header>
+			<button id="titlu">
+				<a href="index.html">Magazin de Bijuterii</a>
+			</button>
+			<div id="spatiu">
+				<!--EMPTY-->
+			</div>
+			<button id="cos">
+				<a href="cart.html">Coș de cumpărături</a>
+			</button>
+		</header>
+		<main>
+			<h3>Coș de cumpărături</h3>
+			<div id="infoCos">
+				<table>
+					<thead>
+						<tr>
+							<th>Nume</th>
+							<th>Preț</th>
+							<th>Cantitate</th>
+							<th>Subtotal</th>
+							<th><!--remove la body--></th>
+						</tr>
+					</thead>
+					<tbody></tbody>
+				</table>
+				<div id="totalProduse">
+					<div id="totalAjax">
+						<!--AjAX-->
+					</div>
+					<button onclick="cumpara();">&#8594;&nbsp;Cumpără</button>
+				</div>
+			</div>
+		</main>
+		<script type="text/javascript" charset="utf-8" src="js/aplicatieCos.js"></script>
+	</body>
+</html>
