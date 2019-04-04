@@ -5,7 +5,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Lista de Produse</title>
 		<link rel="stylesheet" type="text/css" href="css/stiluriIndex.css">
-		<link href="https://fonts.googleapis.com/css?family=Parisienne" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="slick/slick.css">
+  		<link rel="stylesheet" type="text/css" href="slick/slick-theme.css">
 		<link href="https://fonts.googleapis.com/css?family=Pinyon+Script" rel="stylesheet">
 	</head>
 	<body onload="preiaProdusele();">
@@ -22,9 +23,62 @@
 			</button>
 		</header>
 		<main>
-			<!-- CARUSEL -->
-			<!-- Lista AJAX de produse -->
+			<div id="carusel">
+				<!-- CARUSEL -->
+				<section class="lazy slider" data-sizes="50vw">
+					<div>
+					  <img data-lazy="img/carusel/0car350.jpg" data-srcset="img/carusel/0car650.jpg 650w, img/carusel/0car960.jpg 960w" data-sizes="100vw">
+					</div>
+					<div>
+					  <img data-lazy="img/carusel/1car350.jpg" data-srcset="img/carusel/1car650.jpg 650w, img/carusel/1car960.jpg 960w" data-sizes="100vw">
+					</div>
+					<div>
+					  <img data-lazy="img/carusel/2car350.jpg" data-srcset="img/carusel/2car650.jpg 650w, img/carusel/2car960.jpg 960w" data-sizes="100vw">
+					</div>
+					<div>
+					  <img data-lazy="img/carusel/3car350.jpg" data-srcset="img/carusel/3car650.jpg 650w, img/carusel/3car960.jpg 960w" data-sizes="100vw">
+					</div>
+					<div>
+					  <img data-lazy="img/carusel/4car350.jpg" data-srcset="img/carusel/4car650.jpg 650w, img/carusel/4car960.jpg 960w" data-sizes="100vw">
+					</div>
+					<!--
+					<div>
+					  <img data-lazy="http://placehold.it/350x300?text=3-350w"  data-srcset="http://placehold.it/650x300?text=3-650w 650w, http://placehold.it/960x300?text=3-960w 960w" data-sizes="100vw">
+					</div>
+					-->
+				  </section>
+
+			</div>
+
+			<div id="produse">
+				<!-- Lista AJAX de produse -->
+				<!--
+				<div class="articolComercial">
+					<img src="https://tudordan.github.io/Electronic-Shop/img/produse/pic0.png">
+					<h2>Nume produs</h2>
+					<p>500$</p>
+					<button>
+						<a href="details.html?id=0">Detalii</a>
+					</button>
+				</div>
+				-->
+			</div>
 		</main>
-		<script type="text/javascript" charset="utf-8" src="js/aplicatieIndex.js"></script>
+		<script type="text/javascript" charset="utf-8" src="js/aplicatie.js"></script>
+		<script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
+		<script src="slick/slick.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+		  $(document).on('ready', function() {
+				$('.lazy').slick({
+					lazyLoad: 'ondemand', // ondemand progressive anticipated
+					infinite: true,
+					dots: true,
+					fade: true,
+					autoplay: true,
+					autoplaySpeed: 2000,
+					arrows: true
+				});
+		  });
+	  </script>
 	</body>
 </html>

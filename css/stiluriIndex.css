@@ -28,7 +28,7 @@ header > button {
 	font-weight: bolder;
 	cursor: pointer;
 }
-header > button a {
+header > button > a {
 	text-decoration: none;
 	color: inherit;
 }
@@ -38,7 +38,7 @@ header > button:hover {
 }
 #titlu {
 	width: 50%;
-	font-size: 60px;
+	font-size: 63px;
 	font-family: 'Pinyon Script', cursive;
 }
 #cos, #admin {
@@ -47,10 +47,51 @@ header > button:hover {
 	font-family: 'Arial';
 }
 main {
-	margin-top: 20px;
-	background-color: white;
 	font-family: 'Arial';
-	padding: 10px;
+	margin-top: 10px;
+}
+#carusel {
+	border: 15px solid white;
+}
+#produse {
+	background-color: white;
+	padding: 15px 5px 15px 15px;
+	display: flex;
+	flex-wrap: wrap;
+}
+.articolComercial {
+	width: 24.3%;
+	border: 1px solid #888;
+	margin: 0 10px 10px 0;
+}
+.articolComercial > img {
+	max-width: 350px;
+	max-height: 250px;
+	display: block;
+	margin-left: auto;
+    margin-right: auto;
+}
+.articolComercial > h2, p {
+	font-size: 24px;
+	text-align: center;
+}
+.articolComercial > button {
+	background-color: transparent;
+	border: 0;
+	display: block;
+	margin-left: auto;
+    margin-right: auto;
+    vertical-align: bottom;
+}
+.articolComercial > button > a {
+	background-color: #888;
+	color: white;
+	font-size: 18px;
+	padding: 3px 14px;
+	font-weight: bolder;
+	border: 0;
+	border-radius: 6px;
+	cursor: pointer;
 }
 
 /* "Column Drop" Responsive Pattern */
@@ -122,5 +163,13 @@ main {
 		order: 4;
 		width: 25%;
 		font-size: 18px;
+	}
+}
+@media screen and (min-width: 701px) and (max-width: 1530px) {
+	.articolComercial {
+		width: 32.6%;
+	}
+	.articolComercial > img {
+		max-width: 250px;
 	}
 }
