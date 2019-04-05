@@ -227,24 +227,24 @@ main {
 		width: 47.5%;
 	}
 	.articolComercial > img {
+		max-width: 170px;
+	}
+	.articolComercial > h2, p {
+		font-size: 16px;
+	}
+}
+@media screen and (min-width: 411px) and (max-width: 500px) {
+	.articolComercial {
+		width: 47%;
+	}
+	.articolComercial > img {
 		max-width: 150px;
 	}
 	.articolComercial > h2, p {
 		font-size: 16px;
 	}
 }
-@media screen and (min-width: 331px) and (max-width: 500px) {
-	.articolComercial {
-		width: 100%;
-	}
-	.articolComercial > img {
-		max-width: 200px;
-	}
-	.articolComercial > h2, p {
-		font-size: 16px;
-	}
-}
-@media screen and (max-width: 330px) {
+@media screen and (max-width: 410px) {
 	.articolComercial {
 		width: 100%;
 	}
