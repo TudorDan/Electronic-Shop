@@ -121,6 +121,7 @@
   .slider {
     /*My Settings */
       width: 90%;
+    /*End of my settings*/
       margin: 15px auto;
   }
 
@@ -150,4 +151,3 @@
   .slick-current {
     opacity: 1;
   }
-/* My Settings */

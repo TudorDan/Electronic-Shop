@@ -166,7 +166,7 @@ main {
 	}
 }
 
-/*Products List Responsive Settings*/
+/*Products List and Slider Responsive Settings*/
 @media screen and (min-width: 1201px) and (max-width: 1530px) {
 	.articolComercial {
 		width: 24%;
