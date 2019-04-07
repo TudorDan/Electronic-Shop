@@ -4,7 +4,7 @@
 html, body {
 	font-family: 'Pinyon Script', 'Arial', sans-serif;
 	font-size: 24px;
-	background: url(../img/wallpaperDetaliiGray.jpg) no-repeat fixed;
+	background: url(../img/wallpaperDetaliiGray.jpg) no-repeat center center fixed;
 	-webkit-background-size: cover; /* safari5.1+,chrome10+ */
 	-moz-background-size: cover; /* ff3.6+ */
 	-ms-background-size: cover; /* ie10+ */
