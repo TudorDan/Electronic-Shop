@@ -2,65 +2,65 @@
     "produse": {
         "0": {
             "nume": "Cercei cu smarald și aur alb",
-            "imagine": "pic0.img",
+            "imagine": "https://tudordan.github.io/Electronic-Shop/img/produse/pic0res.jpg",
             "pret": 2500,
             "descriere": "Cercei placați cu aur italian de 18 karate. Conține 4 smaralde și zirconiu alb 292.",
             "stoc": 8
         },
         "1": {
             "nume": "Inele cu safir și diamante",
-            "imagine": "pic1.img",
+            "imagine": "https://tudordan.github.io/Electronic-Shop/img/produse/pic1.jpg",
             "pret": 3500,
-            "descriere": "Inele din aur alb de 24 karate cu safir și placate cu diamante",
+            "descriere": "Inele din aur alb de 24 karate cu safir și placate cu diamante.",
             "stoc": 6
         },
         "2": {
             "nume": "Inele cu turmalină și diamante",
-            "imagine": "pic2.img",
+            "imagine": "https://tudordan.github.io/Electronic-Shop/img/produse/pic2res.jpg",
             "pret": 3000,
             "descriere": "Inele din aur alb de 18 karate cu turmalină în nuanțe roz și verde, placate cu diamante.",
             "stoc": 7
         },
         "3": {
-            "nume": "Colier din argint cu rubin și safir alb",
-            "imagine": "pic3.img",
+            "nume": "Colier cu rubin și safir alb",
+            "imagine": "https://tudordan.github.io/Electronic-Shop/img/produse/pic3res.jpg",
             "pret": 650,
             "descriere": "Colier din argint cu rubin Chatham și safir alb; bijuterie modernă cu lanț de argint inclus și argint Argentium.",
             "stoc": 11
         },
         "4": {
             "nume": "Colier din argint cu citrin",
-            "imagine": "pic4.img",
+            "imagine": "https://tudordan.github.io/Electronic-Shop/img/produse/pic4res.jpg",
             "pret": 600,
-            "descriere": "Colier din argint cu citrin; bijuterie modernă cu lanț de argint inclus și argint Argentium.",
+            "descriere": "Colier din argint cu chihlimbar citrin; bijuterie modernă cu lanț de argint inclus și argint Argentium.",
             "stoc": 24
         },
         "5": {
             "nume": "Cercei din argint cu ametist",
-            "imagine": "pic5.img",
+            "imagine": "https://tudordan.github.io/Electronic-Shop/img/produse/pic5res.jpg",
             "pret": 750,
             "descriere": "Cercei din argint cu ametist; bijuterie modernă cu piatră prețioasă de culoare violet din 2001, cu argint Argentium.",
             "stoc": 15
         },
         "6": {
             "nume": "Cercei din argint cu topaz",
-            "imagine": "pic6.img",
+            "imagine": "https://tudordan.github.io/Electronic-Shop/img/produse/pic6res.jpg",
             "pret": 700,
             "descriere": "Cercei din argint cu topaz albastru turcoaz; bijuterie modernă cu piatră ecologică, cu argint Argentium.",
             "stoc": 18
         },
         "7": {
             "nume": "Colier din argint cu zirconiu",
-            "imagine": "pic7.img",
+            "imagine": "https://tudordan.github.io/Electronic-Shop/img/produse/pic7res.jpg",
             "pret": 550,
             "descriere": "Colier din argint cu zirconiu; bijuterie modernă cu lanț de argint inclus, substitut de diamant și argint Argentium.",
             "stoc": 35
         },
         "8": {
-            "nume": "Brățară de tenis",
-            "imagine": "pic8.img",
+            "nume": "Brățară cu smarald și aur alb",
+            "imagine": "https://tudordan.github.io/Electronic-Shop/img/produse/pic8res.jpg",
             "pret": 2000,
-            "descriere": "Brățară de tenis din aur de 14 karate și diamant autentic. Creată în laborator.",
+            "descriere": "Brățară de tenis din aur alb de 14 karate și smaralde autentice. Creată în laborator.",
             "stoc": 14
         }
     }
