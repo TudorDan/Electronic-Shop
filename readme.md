@@ -19,23 +19,23 @@ The project contains 4 HTML pages that include JavaScript and CSS (separate file
 
 
 
+## Instructions
+
+You can access the website [here](https://tudordan.github.io/Electronic-Shop/).
+
+
+
 ## Known Bugs
 
 1. index.html:
-    - [] carousel buttons on small screen widths (get out of frame).
+    - [x] carousel buttons on small screen widths (get out of frame).
     - [] *Details* buttons on different product titles lengths (no longer stay to the bottom of the div).
 2. details.html:
-    - work in progress.
+    - [] background image on small screen widths (isn't contained).
 3. cart.html:
     - work in progress.
 4. admin.html:
     - work in progress.
-
-
-
-## Instructions
-
-You can access the website [here](https://tudordan.github.io/Electronic-Shop/).
 
 
 
