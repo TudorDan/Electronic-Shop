@@ -14,7 +14,7 @@ header {
 }
 header > button {
 	background-color: transparent;
-	padding: 10px 20px;
+	padding: 0;
 	border-width: 0 1px 0 1px;
 	border-style: solid;
 	border-color: white;
@@ -22,9 +22,18 @@ header > button {
 	font-weight: bolder;
 	cursor: pointer;
 }
-header > button a {
+header > button > a {
 	text-decoration: none;
 	color: inherit;
+	margin: 0;
+	padding: 10px 20px;
+	display: block;
+}
+#titlu > a {
+	padding: 10px 20px;
+}
+#cos > a {
+	padding: 33px 20px;
 }
 header > button:hover {
 	background-color: rgba(108, 107, 116, 0.9);
@@ -61,13 +70,16 @@ main {
 	}
 	#cos {
 		order: 3;
-		width: 50%;
+		width: 60%;
 		font-size: 14px;
 	}
 	#spatiu {
 		order: 2;
-		width: 50%;
+		width: 40%;
 		font-size: 14px;
+	}
+	#cos > a {
+		padding: 10px 20px;
 	}
 }
 @media screen and (min-width: 481px) and (max-width: 710px) {
@@ -91,6 +103,9 @@ main {
 		width: 50%;
 		font-size: 18px;
 	}
+	#cos > a {
+		padding: 10px 20px;
+	}
 }
 @media screen and (min-width: 711px) and (max-width: 1130px) {
 	#titlu {
@@ -108,5 +123,8 @@ main {
 		order: 3;
 		width: 50%;
 		font-size: 20px;
+	}
+	#cos > a {
+		padding: 21px 20px;
 	}
 }

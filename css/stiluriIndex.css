@@ -20,7 +20,7 @@ header {
 }
 header > button {
 	background-color: transparent;
-	padding: 10px 20px;
+	padding: 0;
 	border-width: 0 1px 0 1px;
 	border-style: solid;
 	border-color: white;
@@ -31,6 +31,14 @@ header > button {
 header > button > a {
 	text-decoration: none;
 	color: inherit;
+	margin: 0;
+	display: block;
+}
+#titlu > a {
+	padding: 10px 20px;
+}
+#cos > a, #admin > a {
+	padding: 33px 20px;
 }
 header > button:hover {
 	background-color: rgba(108, 107, 116, 0.9);;
@@ -124,6 +132,9 @@ main {
 		width: 50%;
 		font-size: 14px;
 	}
+	#cos > a, #admin > a {
+		padding: 10px 20px;
+	}
 	body {
 		margin: 0 15px 15px 15px;
 	}
@@ -149,11 +160,14 @@ main {
 		width: 50%;
 		font-size: 18px;
 	}
+	#cos > a, #admin > a {
+		padding: 10px 20px;
+	}
 	body {
 		margin: 5px 15px 15px 15px;
 	}
 }
-@media screen and (min-width: 701px) and (max-width: 1130px) {
+@media screen and (min-width: 701px) and (max-width: 1150px) {
 	header {
 		flex-wrap: wrap;
 	}
@@ -166,17 +180,20 @@ main {
 	}
 	header > span {
 		order: 2;
-		width: 50%;
+		width: 34%;
 	}
 	#cos {
 		order: 3;
-		width: 25%;
+		width: 33%;
 		font-size: 18px;
 	}
 	#admin {
 		order: 4;
-		width: 25%;
+		width: 33%;
 		font-size: 18px;
+	}
+	#cos > a, #admin > a {
+		padding: 10px 20px;
 	}
 	body {
 		margin: 10px 20px 20px 20px;
