@@ -30,6 +30,7 @@ You can access the website [here](https://tudordan.github.io/Electronic-Shop/).
 1. index.html:
     - [x] carousel buttons on small screen widths (get out of frame).
     - [] *Details* buttons on different product titles lengths (no longer stay to the bottom of the div).
+    - [x] header links not filling the buttons (entire width and height).
 2. details.html:
     - [] background image on small screen widths (isn't contained).
 3. cart.html:
