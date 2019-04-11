@@ -91,15 +91,23 @@ function afiseazaCos() {
                     <td><a href="details.html?id=${produse[i].id}">${produse[i].nume}</a></td>
                     <td>${produse[i].pret} &euro;</td>
                     <td>
-                        <button onclick="scadeCantitate(${i});">-</button> 
-                        ${produse[i].cantitate} 
-                        <button onclick="cresteCantitate(${i});">+</button> 
+                        <button onclick="scadeCantitate(${i});">-</button>
+                        ${produse[i].cantitate}
+                        <button onclick="cresteCantitate(${i});">+</button>
                     </td>
                     <td>${produse[i].subtotal} &euro;</td>
                     <td><button onclick="stergeProdusCos(${i});">Șterge</button></td>
                 </tr>
             `;
             total += produse[i].subtotal;
+        }
+        //colorăm alternativ rândurile și setăm CSS
+        let linii = document.querySelectorAll('tbody tr');
+        for(let j = 0; j < linii.length; j++) {
+            if(j % 2 === 0) {
+                linii[j].style.backgroundColor = '#A4A4BF';
+            }
+            linii[j].cells[2].style.textAlign = 'center';
         }
         let info = document.querySelector('#totalAjax');
         info.innerHTML = `
@@ -141,15 +149,15 @@ function stergeProdusCos(i) {
         produse.splice(i,1);
         window.localStorage.setItem('produse',JSON.stringify(produse));
         afiseazaCos();
-    }    
+    }
 }
 
 function deschideModal(nume) {
-    console.log(nume);
+    //console.log(nume);
     let zonaModal = document.querySelector('#modalAdaugareProdus');
     zonaModal.innerHTML = `Produsul „${nume}” a fost adăugat în coș!`;
     zonaModal.style.display = 'block';
     setTimeout( () => {
         zonaModal.style.display = 'none';
-    }, 3500);
+    }, 2500);
 }

@@ -56,7 +56,7 @@ header > button:hover {
 }
 main {
 	margin-top: 20px;
-	background-color: white;
+	background-color: rgba(255, 255, 255, 0.8);
 	font-family: 'Arial';
 	padding: 10px;
 }
@@ -65,6 +65,11 @@ main {
 }
 table {
 	width: 75%;
+	display: table;
+}
+th, td {
+	text-align: left;
+	width: auto;
 }
 #totalProduse > button {
 	background-color: #888;
@@ -161,4 +166,59 @@ table {
 	#cos > a {
 		padding: 21px 20px;
 	}
+}
+
+/* Table Responsiveness */
+@media screen and (min-width: 641px) and (max-width: 1000px) {
+	#infoCos {
+		flex-wrap: wrap;
+	}
+	table {
+		width: 100%;
+	}
+	#totalProduse {
+		width: 100%;
+	}
+	main {
+		font-size: 20px;
+	}
+	body {
+		margin: 20px;
+	}
+}
+@media screen and (min-width: 565px) and (max-width: 640px) {
+		#infoCos {
+			flex-wrap: wrap;
+		}
+		table {
+			width: 100%;
+		}
+		#totalProduse {
+			width: 100%;
+		}
+		main {
+			font-size: 18px;
+		}
+		body {
+			margin: 10px;
+		}
+}
+@media screen and (min-width: 5px) and (max-width: 564px) {
+		#infoCos {
+			flex-wrap: wrap;
+		}
+		table {
+			width: 100%;
+			display: block;
+			overflow: auto;
+		}
+		#totalProduse {
+			width: 100%;
+		}
+		main {
+			font-size: 17px;
+		}
+		body {
+			margin: 10px;
+		}
 }

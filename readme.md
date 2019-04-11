@@ -29,14 +29,17 @@ You can access the website [here](https://tudordan.github.io/Electronic-Shop/).
 
 1. index.html:
     - [x] carousel buttons on small screen widths (get out of frame).
-    - [] *Details* buttons on different product titles lengths (no longer stay to the bottom of the div).
+    - [ ] *Details* buttons on different product titles lengths (no longer stay to the bottom of the div).
     - [x] header links not filling the buttons (entire width and height).
 2. details.html:
-    - [] background image on small screen widths (isn't contained).
+    - [x] header links not filling the buttons (entire width and height).
+    - [ ] background image on small screen widths (isn't contained).
 3. cart.html:
-    - work in progress.
+    - [x] header links not filling the buttons (entire width and height).
+    - [ ] same product is added several times to the cart (if _Cumpără_ button is clicked on different ocasions)
 4. admin.html:
-    - work in progress.
+    - [x] header links not filling the buttons (entire width and height).
+    - [ ] work in progress.
 
 
 
