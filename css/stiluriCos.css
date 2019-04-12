@@ -4,7 +4,7 @@
 html, body {
 	font-family: 'Pinyon Script', 'Arial', sans-serif;
 	font-size: 24px;
-	background: url(../img/wallpaperCos.jpg) no-repeat fixed;
+	background: url(../img/wallpaperCosRes.jpg) no-repeat fixed;
 	-webkit-background-size: cover; /* safari5.1+,chrome10+ */
 	-moz-background-size: cover; /* ff3.6+ */
 	-ms-background-size: cover; /* ie10+ */
@@ -66,23 +66,53 @@ main {
 table {
 	width: 75%;
 	display: table;
+    border: 1px solid #167F92;
+    border-radius: 10px;
+    color: #024457;
 }
 th, td {
 	text-align: left;
 	width: auto;
 }
+th {
+	border: 1px solid #FFF;
+    background-color: #167F92;
+    color: #FFF;
+    padding: 2px;
+}
+tbody button {
+	font-size: 14px;
+	background: #C4D2F5;
+	cursor: pointer;
+}
+tbody button:hover {
+	background: #04A85C;
+}
+#totalProduse {
+	width: 25%;
+}
 #totalProduse > button {
 	background-color: #888;
 	color: white;
 	font-size: 18px;
-	padding: 3px 14px;
+	padding: 9px 14px;
 	font-weight: bolder;
 	border: 0;
-	border-radius: 6px;
+	border-radius: 10px;
 	cursor: pointer;
+	display: block;
+	margin-left: auto;
+    margin-right: auto;
+    border: 3px solid #00A63F;
 }
-#totalProduse {
-	width: 25%;
+#totalProduse > button:hover {
+	color: #FFF;
+    background: #34762F;
+    border-color: #34762F;
+}
+#totalAjax > p {
+	margin-top: 0;
+	text-align: center;
 }
 
 /* "Column Drop" Responsive Pattern */
@@ -187,38 +217,38 @@ th, td {
 	}
 }
 @media screen and (min-width: 565px) and (max-width: 640px) {
-		#infoCos {
-			flex-wrap: wrap;
-		}
-		table {
-			width: 100%;
-		}
-		#totalProduse {
-			width: 100%;
-		}
-		main {
-			font-size: 18px;
-		}
-		body {
-			margin: 10px;
-		}
+	#infoCos {
+		flex-wrap: wrap;
+	}
+	table {
+		width: 100%;
+	}
+	#totalProduse {
+		width: 100%;
+	}
+	main {
+		font-size: 18px;
+	}
+	body {
+		margin: 10px;
+	}
 }
-@media screen and (min-width: 5px) and (max-width: 564px) {
-		#infoCos {
-			flex-wrap: wrap;
-		}
-		table {
-			width: 100%;
-			display: block;
-			overflow: auto;
-		}
-		#totalProduse {
-			width: 100%;
-		}
-		main {
-			font-size: 17px;
-		}
-		body {
-			margin: 10px;
-		}
+@media screen and (max-width: 564px) {
+	#infoCos {
+		flex-wrap: wrap;
+	}
+	table {
+		width: 100%;
+		display: block;
+		overflow: auto;
+	}
+	#totalProduse {
+		width: 100%;
+	}
+	main {
+		font-size: 17px;
+	}
+	body {
+		margin: 10px;
+	}
 }

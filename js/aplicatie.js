@@ -105,7 +105,7 @@ function afiseazaCos() {
         let linii = document.querySelectorAll('tbody tr');
         for(let j = 0; j < linii.length; j++) {
             if(j % 2 === 0) {
-                linii[j].style.backgroundColor = '#A4A4BF';
+                linii[j].style.backgroundColor = '#EAF3F3';
             }
             linii[j].cells[2].style.textAlign = 'center';
         }
