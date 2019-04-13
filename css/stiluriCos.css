@@ -118,6 +118,9 @@ tbody button:hover {
 
 /* "Column Drop" Responsive Pattern */
 @media screen and (max-width: 480px) {
+	body {
+		margin: 0 10px 10px 10px;
+	}
 	header {
 		flex-wrap: wrap;
 	}
@@ -153,6 +156,9 @@ tbody button:hover {
 	}
 }
 @media screen and (min-width: 481px) and (max-width: 710px) {
+	body {
+		margin: 0 10px 10px 10px;
+	}
 	header {
 		flex-wrap: wrap;
 	}
@@ -213,9 +219,6 @@ tbody button:hover {
 	main {
 		font-size: 20px;
 	}
-	body {
-		margin: 20px;
-	}
 }
 @media screen and (min-width: 565px) and (max-width: 640px) {
 	#infoCos {
@@ -229,9 +232,6 @@ tbody button:hover {
 	}
 	main {
 		font-size: 18px;
-	}
-	body {
-		margin: 10px;
 	}
 }
 @media screen and (max-width: 564px) {
@@ -248,8 +248,5 @@ tbody button:hover {
 	}
 	main {
 		font-size: 17px;
-	}
-	body {
-		margin: 10px;
 	}
 }

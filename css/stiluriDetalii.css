@@ -102,6 +102,9 @@ main {
 
 /* "Column Drop" Responsive Pattern */
 @media screen and (max-width: 480px) {
+	body {
+		margin: 0 10px 10px 10px;
+	}
 	header {
 		flex-wrap: wrap;
 	}
@@ -127,6 +130,9 @@ main {
 	}
 }
 @media screen and (min-width: 481px) and (max-width: 710px) {
+	body {
+		margin: 0 10px 10px 10px;
+	}
 	header {
 		flex-wrap: wrap;
 	}

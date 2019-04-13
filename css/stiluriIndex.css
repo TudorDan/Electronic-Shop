@@ -112,6 +112,9 @@ main {
 
 /* "Column Drop" Responsive Pattern */
 @media screen and (max-width: 480px) {
+	body {
+		margin: 0 15px 15px 15px;
+	}
 	header {
 		flex-wrap: wrap;
 	}
@@ -135,11 +138,11 @@ main {
 	#cos > a, #admin > a {
 		padding: 10px 20px;
 	}
-	body {
-		margin: 0 15px 15px 15px;
-	}
 }
 @media screen and (min-width: 481px) and (max-width: 700px) {
+	body {
+		margin: 5px 15px 15px 15px;
+	}
 	header {
 		flex-wrap: wrap;
 	}
@@ -163,11 +166,11 @@ main {
 	#cos > a, #admin > a {
 		padding: 10px 20px;
 	}
-	body {
-		margin: 5px 15px 15px 15px;
-	}
 }
 @media screen and (min-width: 701px) and (max-width: 1150px) {
+	body {
+		margin: 10px 20px 20px 20px;
+	}
 	header {
 		flex-wrap: wrap;
 	}
@@ -194,9 +197,6 @@ main {
 	}
 	#cos > a, #admin > a {
 		padding: 10px 20px;
-	}
-	body {
-		margin: 10px 20px 20px 20px;
 	}
 }
 
