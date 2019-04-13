@@ -10,6 +10,7 @@ html, body {
 	-ms-background-size: cover; /* ie10+ */
 	-o-background-size: cover; /* opera 11.10+ */
 	background-size: cover; /* w3c */
+	height: 100%;
 }
 body {
 	margin: 30px;
