@@ -102,6 +102,9 @@ main {
 .loadingGif {
 	font-weight: bolder;
 }
+.eroare {
+	color: red;
+}
 
 /* "Column Drop" Responsive Pattern */
 @media screen and (max-width: 480px) {

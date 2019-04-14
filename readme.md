@@ -36,11 +36,11 @@ You can access the website [here](https://tudordan.github.io/Electronic-Shop/).
     - [ ] background image on small screen widths (isn't contained).
 3. cart.html:
     - [x] header links not filling the buttons (entire width and height).
-    - [ ] same product is added several times to the cart (if _Cumpără_ button is clicked on different ocasions).
+    - [x] same product is added several times to the cart (if _Cumpără_ button is clicked on different ocasions).
     - [x] background image doesn't cover entire height on small screen widths.
 4. admin.html:
     - [x] header links not filling the buttons (entire width and height).
-    - [ ] work in progress.
+    - [x] small screen widths form responsiveness.
 
 
 

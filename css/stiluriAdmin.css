@@ -57,17 +57,18 @@ main {
 }
 #antet {
 	display: flex;
+	margin: 5px 0 10px 0;
 }
 #antet > h2 {
 	width: 50%;
 	text-align: left;
-	margin-top: 0;
+	margin: 0;	
 }
 #antet > span {
 	width: 50%;
 }
 #antet > span > button {
-	background-color: #29abdf;
+	background-color: #29ABDF;
 	color: white;
 	font-size: 18px;
 	padding: 9px 14px;
@@ -94,16 +95,26 @@ th, td {
 	width: auto;
 }
 th {
-	background-color: #dbeef2;
+	background-color: #DBEEF2;
 }
 tbody button {
 	font-size: 14px;
 	background: #C4D2F5;
 	cursor: pointer;
+	padding: 2px 10px;
 }
 tbody button:hover {
 	background: #0444BF;
 	color: white;
+}
+form {
+	width: 75%;
+	margin: 0 auto;
+	border: 1px solid #6ECBF6;
+	border-radius: 10px;
+	padding: 10px;
+	color: #0486DB;
+	background-color: #E9E3F4;
 }
 form > span {
 	display: flex;
@@ -115,10 +126,47 @@ form > span > legend {
 }
 form > span > input {
 	width: 20%;
-	margin: 5px 20px;
+	color: white;
+	font-size: 18px;
+	padding: 9px 14px;
+	font-weight: bolder;
+	border: 0;
+	border-radius: 10px;
+	cursor: pointer;
+	display: block;
+	margin-left: auto;
+    margin-right: auto;
+}
+form > span > input[type="submit"] {
+	background-color: #29ABDF;
+}
+form > span > input[type="submit"]:hover {
+	background: #0444BF;
+}
+form > span > input[type="button"] {
+	background-color: #888;
+}
+form > span > input[type="button"]:hover {
+	background: #04A85C;
+}
+form > label {
+	display: inline-block;
+	text-align: right;
+	width: 100%;
+	margin: 10px 0;
+}
+form > label > span {
+	vertical-align: top;
 }
 form > label > input {
 	font-size: 24px;
+	margin-left: 20px;
+	width: 80%;
+}
+form > label > textarea {
+	font-size: 24px;
+	margin-left: 20px;
+	width: 80%;
 }
 .loadingGif {
 	font-weight: bolder;
@@ -197,5 +245,109 @@ form > label > input {
 	}
 	#cos > a {
 		padding: 21px 20px;
+	}
+}
+
+/* Ajax Table Responsiveness */
+@media screen and (max-width: 580px) {
+	#antet {
+		display: block;
+		flex-wrap: wrap;
+		font-size: 14px;
+	}
+	#antet > h2 {
+		margin-bottom: 5px;
+	}
+	table {
+		font-size: 16px;
+		width: 100%;
+		display: block;
+		overflow: auto;
+	}
+	#produse table tr td:nth-child(4) {
+		text-align: center;
+	}
+}
+@media screen and (min-width: 581px) and (max-width: 920px) {
+	#antet {
+		font-size: 18px;
+	}
+	table {
+		font-size: 20px;
+	}
+	#produse table tr td:nth-child(4) {
+		text-align: center;
+	}
+}
+
+/* Ajax Form Responsiveness */
+@media screen and (max-width: 414px) {
+	form {
+		width: 100%;
+		resize: vertical;
+	}
+	form > span {
+		flex-wrap: wrap;
+	}
+	form > span > legend {
+		width: 100%;
+		font-size: 24px;
+	}
+	form > span > input {
+		width: 50%;
+		font-size: 16px;
+	}
+	form > label {
+		font-size: 16px;
+		overflow: auto;
+	}
+	form > label > input {
+		width: 100%;
+	}
+	form > label > textarea {
+		width: 100%;
+	}
+}
+@media screen and (min-width: 415px) and (max-width: 600px) {
+	form {
+		width: 100%;
+		resize: vertical;
+	}
+	form > span {
+		flex-wrap: wrap;
+	}
+	form > span > legend {
+		width: 100%;
+		font-size: 24px;
+	}
+	form > span > input {
+		width: 50%;
+		font-size: 16px;
+	}
+	form > label {
+		font-size: 16px;
+		overflow: auto;
+	}
+	form > label > input {
+		width: 69%;
+	}
+	form > label > textarea {
+		width: 69%;
+	}
+}
+@media screen and (min-width: 601px) and (max-width: 1150px) {
+	form {
+		width: 100%;
+	}
+	form > label > input {
+		width: 70%;
+	}
+	form > label > textarea {
+		width: 70%;
+	}
+}
+@media screen and (min-width: 1151px) and (max-width: 1250px) {
+	form {
+		width: 85%;
 	}
 }

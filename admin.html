@@ -24,7 +24,7 @@
 			<div id="antet">
 				<h2>Gestionare produse</h2>
 				<span>
-					<button onclick="afiseazaFormular(null);">Adaugă produs nou</button>
+					<button onclick="afiseazaFormular(null);">&plus;&nbsp;Adaugă produs nou</button>
 				</span>
 			</div>
 			<form onsubmit="adaugaInBaza(event);" style="display:none;">
@@ -36,7 +36,7 @@
 				
 				<label>Imagine:<input type="text" name="imagine"/></label><br/>
 				<label>Nume:<input type="text" name="nume"/></label><br/>
-				<label>Descriere:<textarea name="descriere" rows="5" cols="60"></textarea></label><br/>
+				<label><span>Descriere:</span><textarea name="descriere" rows="5"></textarea></label><br/>
 				<label>Preț:<input type="number" name="pret"/></label><br/>
 				<label>Cantitate:<input type="number" name="stoc"/></label><br/>
 			</form>

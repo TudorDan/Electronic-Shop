@@ -3,7 +3,7 @@ function preiaProdusele() {
     let zonaProduse = document.querySelector('#produse');
     zonaProduse.innerHTML = `
         <div class="loadingGif">
-            <img src="img/gif/spinningDiamond.gif">
+            <img src="img/gif/pyramidSpinning.gif">
             <p>Se încarcă produsele...</p>
         </div>
     `;
@@ -32,7 +32,14 @@ function preiaProdusele() {
             }
         })
         .catch(error => {
-            console.log('There was an error: ', error)
+            console.log('There was an error: ', error);
+            document.querySelector('#carusel').innerHTML = '';
+            zonaProduse.innerHTML = `
+                <div class="loadingGif">
+                    <img src="img/gif/pyramidSpinning.gif">
+                    <p class="eroare">Eroare la comunicarea cu serverul - verificați conexiunea la Internet...</p>
+                </div>
+            `;
         });
 }
 
@@ -42,7 +49,7 @@ function incarcaProdus() {
     let zonaProdus = document.querySelector('#info');
     zonaProdus.innerHTML = `
         <div class="loadingGif">
-            <img src="img/gif/pyramidSpinning.gif">
+            <img src="img/gif/spinningDiamond.gif">
             <p>Se încarcă produsul...</p>
         </div>
     `;
@@ -64,11 +71,17 @@ function incarcaProdus() {
                 <p>${produs.pret}&nbsp;&euro;</p>
                 <p>În stoc: ${produs.stoc} buc.</p>
                 <p>Cantitate: <input type="number" value="1" min="1" max="${produs.stoc}"></p>
-                <button onclick="adaugaInCos(${id}, '${produs.nume}', ${produs.pret});">Adaugă în coș</button>
+                <button onclick="adaugaInCos('${id}', '${produs.nume}', ${produs.pret});">Adaugă în coș</button>
             `;
         })
         .catch(error => {
-            console.log('There was an error: ', error)
+            console.log('There was an error: ', error);
+            zonaProdus.innerHTML = `
+                <div class="loadingGif">
+                    <img src="img/gif/spinningDiamond.gif">
+                    <p class="eroare">Eroare la comunicarea cu serverul - verificați conexiunea la Internet...</p>
+                </div>
+            `;
         });
 }
 
@@ -83,7 +96,17 @@ function adaugaInCos(id, nume, pret) {
     };
     let produse = JSON.parse(localStorage.getItem('produse'));
     if(produse) {
-        produse.push(produs);
+        let existaProdus = false;
+        for(let i in produse) {
+            if(produse[i].id === produs.id) {
+                produse[i].cantitate = Number(produse[i].cantitate) + Number(produs.cantitate);
+                existaProdus = true;
+                break;
+            }
+        }
+        if(!existaProdus) {
+            produse.push(produs);
+        }
     } else {
         produse = [produs];
     }
@@ -218,10 +241,10 @@ async function preiaProduseAdmin() {
                 tbody.innerHTML += `
                     <tr>
                         <td><img src="${produse[id].imagine}" height="30px"></td>
-                        <td><a href="#" onclick="afiseazaFormular(${id});">${produse[id].nume}</a></td>
+                        <td><a href="#" onclick="afiseazaFormular('${id}');">${produse[id].nume}</a></td>
                         <td>${produse[id].pret}&nbsp;&euro;</td>
                         <td>${produse[id].stoc}</td>
-                        <td><button onclick="stergeProdusAdmin();">Șterge</button></td>
+                        <td><button onclick="stergeProdusAdmin('${id}');">Șterge</button></td>
                     </tr>
                 `;
             }
@@ -287,45 +310,57 @@ async function adaugaInBaza(event) {
     produs.nume = document.querySelector('[name="nume"]').value;
     produs.pret = document.querySelector('[name="pret"]').value;
     produs.stoc = document.querySelector('[name="stoc"]').value;
-    
-    if (idProdus === null) {
-        let url = "https://magazinelectronic-fa84a.firebaseio.com/produse.json";
-        try{
-            //adaugare produs nou
-            let raspuns = await fetch(url,{
-                method: "POST",
-                body: JSON.stringify(produs)
-            });
-            if(!raspuns.ok) {
-                throw new Error(raspuns.statusText);
+    if(produs.descriere && produs.imagine && produs.nume && produs.pret && produs.stoc) {
+        if (idProdus === null) {
+                let url = "https://magazinelectronic-fa84a.firebaseio.com/produse.json";
+                try{
+                    //adaugare produs nou
+                    let raspuns = await fetch(url,{
+                        method: "POST",
+                        body: JSON.stringify(produs)
+                    });
+                    if(!raspuns.ok) {
+                        throw new Error(raspuns.statusText);
+                    }
+                } catch(error) {
+                    console.log('Eroare (POST): ', error);
+                }
+                afiseazaTabel();
+                await preiaProduseAdmin();
+        } else {
+            let url = `https://magazinelectronic-fa84a.firebaseio.com/produse/${idProdus}.json`;
+            try{
+                //actualizare produs existent
+                let raspuns = await fetch(url,{
+                    method: "PUT",
+                    body: JSON.stringify(produs)
+                });
+                if(!raspuns.ok) {
+                    throw new Error(raspuns.statusText);
+                }
+            } catch(error) {
+                console.log('Eroare (PUT): ', error);
             }
-        } catch(error) {
-            console.log('Eroare (POST): ', error);
+            afiseazaTabel();
+            await preiaProduseAdmin();
         }
-        await preiaProduseAdmin();
     } else {
-        let url = `https://magazinelectronic-fa84a.firebaseio.com/${idProdus}.json`;
-        try{
-            //actualizare produs existent
-            let raspuns = await fetch(url,{
-                method: "PUT",
-                body: JSON.stringify(produs)
-            });
-            if(!raspuns.ok) {
-                throw new Error(raspuns.statusText);
-            }
-        } catch(error) {
-            console.log('Eroare (PUT): ', error);
-        }
-        await preiaProduseAdmin();
-        /*
-        await fetch(`https://test-d2273.firebaseio.com/${idxEdit}.json`,{
-            method: "PUT",
-            body: JSON.stringify(el)
-        });
-        await getLista();
-        */
-        //idxEdit = null;
-        //document.querySelector('[type="submit"]').value = "Add";
+        alert("Toate câmpurile din formular sunt obligatorii!");
     }
+}
+
+async function stergeProdusAdmin(id) {
+    let url = `https://magazinelectronic-fa84a.firebaseio.com/produse/${id}.json`;
+    try{
+        //stergere produs existent
+        let raspuns = await fetch(url,{
+            method: "DELETE"
+        });
+        if(!raspuns.ok) {
+            throw new Error(raspuns.statusText);
+        }
+    } catch(error) {
+        console.log('Eroare (DELETE): ', error);
+    }
+    await preiaProduseAdmin();
 }
