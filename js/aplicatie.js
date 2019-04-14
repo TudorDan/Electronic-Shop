@@ -1,5 +1,12 @@
 function preiaProdusele() {
     let url = "https://magazinelectronic-fa84a.firebaseio.com/produse.json";
+    let zonaProduse = document.querySelector('#produse');
+    zonaProduse.innerHTML = `
+        <div class="loadingGif">
+            <img src="img/gif/cubeSpinning.gif">
+            <p>Se încarcă produsele...</p>
+        </div>
+    `;
     return fetch(url)
         .then(response => {
             if(response.ok) {
@@ -10,7 +17,7 @@ function preiaProdusele() {
         .then(response => response.json())
         .then(produse => {
             //console.log(produse);
-            let zonaProduse = document.querySelector('#produse');
+            zonaProduse.innerHTML = '';
             for(let i in produse) {
                 zonaProduse.innerHTML += `
                     <div class="articolComercial">
@@ -32,6 +39,13 @@ function preiaProdusele() {
 function incarcaProdus() {
     let id = window.location.search.split(/=/g)[1];
     let url = `https://magazinelectronic-fa84a.firebaseio.com/produse/${id}.json`;
+    let zonaProdus = document.querySelector('#info');
+    zonaProdus.innerHTML = `
+        <div class="loadingGif">
+            <img src="img/gif/pyramidSpinning.gif">
+            <p>Se încarcă produsul...</p>
+        </div>
+    `;
     return fetch(url)
         .then(response => {
             if(response.ok) {
@@ -43,7 +57,7 @@ function incarcaProdus() {
         .then(produs => {
             console.log(produs);
             document.querySelector('#imagine').src = produs.imagine;
-            let zonaProdus = document.querySelector('#info');
+            zonaProdus.innerHTML = '';
             zonaProdus.innerHTML = `
                 <h2>${produs.nume}</h2>
                 <p>${produs.descriere}</p>

@@ -99,6 +99,9 @@ main {
 	text-align: center;
 	border-radius: 6px;
 }
+.loadingGif {
+	font-weight: bolder;
+}
 
 /* "Column Drop" Responsive Pattern */
 @media screen and (max-width: 480px) {
