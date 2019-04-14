@@ -133,7 +133,7 @@ function afiseazaCos() {
                         <button onclick="cresteCantitate(${i});">+</button>
                     </td>
                     <td>${produse[i].subtotal} &euro;</td>
-                    <td><button onclick="stergeProdusCos(${i});">Șterge</button></td>
+                    <td><button onclick="stergeProdusCos(${i});" class="stergeDinCos">Șterge</button></td>
                 </tr>
             `;
             total += produse[i].subtotal;

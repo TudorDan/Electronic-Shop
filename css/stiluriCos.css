@@ -85,6 +85,8 @@ tbody button {
 	font-size: 14px;
 	background: #C4D2F5;
 	cursor: pointer;
+}
+.stergeDinCos {
 	padding: 2px 10px;
 }
 tbody button:hover {
