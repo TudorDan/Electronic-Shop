@@ -55,6 +55,77 @@ main {
 	font-family: 'Arial';
 	padding: 10px;
 }
+#antet {
+	display: flex;
+}
+#antet > h2 {
+	width: 50%;
+	text-align: left;
+	margin-top: 0;
+}
+#antet > span {
+	width: 50%;
+}
+#antet > span > button {
+	background-color: #29abdf;
+	color: white;
+	font-size: 18px;
+	padding: 9px 14px;
+	font-weight: bolder;
+	border: 0;
+	border-radius: 10px;
+	cursor: pointer;
+	display: block;
+	margin-left: auto;
+    margin-right: auto;
+}
+#antet > span > button:hover {
+	background-color: #0444BF;
+}
+table {
+	width: 100%;
+	display: table;
+    border: 1px solid #6ECBF6;
+    border-radius: 10px;
+    color: #0486DB;
+}
+th, td {
+	text-align: left;
+	width: auto;
+}
+th {
+	background-color: #dbeef2;
+}
+tbody button {
+	font-size: 14px;
+	background: #C4D2F5;
+	cursor: pointer;
+}
+tbody button:hover {
+	background: #0444BF;
+	color: white;
+}
+form > span {
+	display: flex;
+}
+form > span > legend {
+	width: 60%;
+	font-size: 32px;
+	text-align: left;
+}
+form > span > input {
+	width: 20%;
+	margin: 5px 20px;
+}
+form > label > input {
+	font-size: 24px;
+}
+.loadingGif {
+	font-weight: bolder;
+}
+.eroare {
+	color: red;
+}
 
 /* "Column Drop" Responsive Pattern */
 @media screen and (max-width: 480px) {

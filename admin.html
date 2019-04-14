@@ -7,7 +7,7 @@
 		<link rel="stylesheet" type="text/css" href="css/stiluriAdmin.css">
 		<link href="https://fonts.googleapis.com/css?family=Pinyon+Script" rel="stylesheet">
 	</head>
-	<body>
+	<body onload="preiaProduseAdmin();">
 		<header>
 			<button id="titlu">
 				<a href="index.html">Magazin de Bijuterii</a>
@@ -21,6 +21,28 @@
 		</header>
 		<main>
 			<!-- Ajax -->
+			<div id="antet">
+				<h2>Gestionare produse</h2>
+				<span>
+					<button onclick="afiseazaFormular(null);">Adaugă produs nou</button>
+				</span>
+			</div>
+			<form onsubmit="adaugaInBaza(event);" style="display:none;">
+				<span>
+					<legend>Adăugare produs</legend>
+					<input type="submit" value="Adaugă"/>
+					<input type="button" value="Renunță" onclick="afiseazaTabel();"/>
+				</span>
+				
+				<label>Imagine:<input type="text" name="imagine"/></label><br/>
+				<label>Nume:<input type="text" name="nume"/></label><br/>
+				<label>Descriere:<textarea name="descriere" rows="5" cols="60"></textarea></label><br/>
+				<label>Preț:<input type="number" name="pret"/></label><br/>
+				<label>Cantitate:<input type="number" name="stoc"/></label><br/>
+			</form>
+			<div id="produse">
+				<!-- Ajax -->
+			</div>
 		</main>
 		<script type="text/javascript" charset="utf-8" src="js/aplicatie.js"></script>
 	</body>

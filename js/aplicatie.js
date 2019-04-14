@@ -3,7 +3,7 @@ function preiaProdusele() {
     let zonaProduse = document.querySelector('#produse');
     zonaProduse.innerHTML = `
         <div class="loadingGif">
-            <img src="img/gif/cubeSpinning.gif">
+            <img src="img/gif/spinningDiamond.gif">
             <p>Se încarcă produsele...</p>
         </div>
     `;
@@ -122,6 +122,7 @@ function afiseazaCos() {
                 linii[j].style.backgroundColor = '#EAF3F3';
             }
             linii[j].cells[2].style.textAlign = 'center';
+            linii[j].cells[4].style.textAlign = 'center';
         }
         let info = document.querySelector('#totalAjax');
         info.innerHTML = `
@@ -174,4 +175,157 @@ function deschideModal(nume) {
     setTimeout( () => {
         zonaModal.style.display = 'none';
     }, 2500);
+}
+
+//functii administrare
+
+let idProdus = null;
+let produse = [];
+
+async function preiaProduseAdmin() {
+    let url = "https://magazinelectronic-fa84a.firebaseio.com/produse.json";
+    let zonaProduse = document.querySelector('#produse');
+    zonaProduse.innerHTML = `
+        <div class="loadingGif">
+            <img src="img/gif/cubeSpinning.gif">
+            <p>Se încarcă produsele...</p>
+        </div>
+    `;
+    try {
+        let raspuns = await fetch(url);
+        if(!raspuns.ok) {
+            throw new Error(raspuns.statusText);
+        } else {
+            produse = await raspuns.json();
+            zonaProduse.innerHTML = `
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Imagine</th>
+                            <th>Nume</th>
+                            <th>Preț</th>
+                            <th>Cantitate</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                    </tbody>
+                </table>
+            `;
+            let tbody = document.querySelector('tbody');
+            for(let id in produse) {
+                tbody.innerHTML += `
+                    <tr>
+                        <td><img src="${produse[id].imagine}" height="30px"></td>
+                        <td><a href="#" onclick="afiseazaFormular(${id});">${produse[id].nume}</a></td>
+                        <td>${produse[id].pret}&nbsp;&euro;</td>
+                        <td>${produse[id].stoc}</td>
+                        <td><button onclick="stergeProdusAdmin();">Șterge</button></td>
+                    </tr>
+                `;
+            }
+            //colorăm alternativ rândurile și setăm CSS
+            let linii = document.querySelectorAll('tbody tr');
+            for(let j = 0; j < linii.length; j++) {
+                if(j % 2 !== 0) {
+                    linii[j].style.backgroundColor = '#CCF1FA';
+                }
+                linii[j].cells[4].style.textAlign = 'center';
+            }
+        }
+    } catch(error) {
+        console.log('Eroare: ', error);
+        zonaProduse.innerHTML = `
+            <div class="loadingGif">
+                <img src="img/gif/cubeSpinning.gif">
+                <p class="eroare">Eroare la comunicarea cu serverul - verificați conexiunea la Internet...</p>
+            </div>
+        `;
+    }
+}
+
+function afiseazaFormular(id) {
+    let formular = document.querySelector('form');
+    if(id === null) {
+        idProdus = null;
+        document.querySelector('[type="submit"]').value = 'Adaugă';
+        formular.reset();
+    } else {
+        idProdus = id;
+        document.querySelector('[type="submit"]').value = 'Modifică';
+        document.querySelector('[name="descriere"]').value = produse[id].descriere;
+        document.querySelector('[name="imagine"]').value = produse[id].imagine;
+        document.querySelector('[name="nume"]').value = produse[id].nume;
+        document.querySelector('[name="pret"]').value = produse[id].pret;
+        document.querySelector('[name="stoc"]').value = produse[id].stoc;
+    }
+    let stergeAntet = document.querySelector('#antet');
+    stergeAntet.style.display = 'none';
+    let tabel = document.querySelector('table');
+    formular.style.display = '';
+    tabel.style.display = 'none';
+}
+
+function afiseazaTabel() {
+    let apareAntet = document.querySelector('#antet');
+    apareAntet.style.display = 'flex';
+    idProdus = null;
+    document.querySelector('[type="submit"]').value = 'Adaugă';
+    document.querySelector('form').style.display = 'none';
+    document.querySelector('table').style.display = '';
+}
+
+async function adaugaInBaza(event) {
+    event.preventDefault();
+    let stergeAntet = document.querySelector('#antet');
+    stergeAntet.style.display = 'none';
+
+    let produs = {};
+    produs.descriere = document.querySelector('[name="descriere"]').value;
+    produs.imagine = document.querySelector('[name="imagine"]').value;
+    produs.nume = document.querySelector('[name="nume"]').value;
+    produs.pret = document.querySelector('[name="pret"]').value;
+    produs.stoc = document.querySelector('[name="stoc"]').value;
+    
+    if (idProdus === null) {
+        let url = "https://magazinelectronic-fa84a.firebaseio.com/produse.json";
+        try{
+            //adaugare produs nou
+            let raspuns = await fetch(url,{
+                method: "POST",
+                body: JSON.stringify(produs)
+            });
+            if(!raspuns.ok) {
+                throw new Error(raspuns.statusText);
+            }
+        } catch(error) {
+            console.log('Eroare (POST): ', error);
+        }
+        await preiaProduseAdmin();
+    } else {
+        let url = `https://magazinelectronic-fa84a.firebaseio.com/${idProdus}.json`;
+        try{
+            //actualizare produs existent
+            let raspuns = await fetch(url,{
+                method: "PUT",
+                body: JSON.stringify(produs)
+            });
+            if(!raspuns.ok) {
+                throw new Error(raspuns.statusText);
+            }
+        } catch(error) {
+            console.log('Eroare (PUT): ', error);
+        }
+        await preiaProduseAdmin();
+        /*
+        await fetch(`https://test-d2273.firebaseio.com/${idxEdit}.json`,{
+            method: "PUT",
+            body: JSON.stringify(el)
+        });
+        await getLista();
+        */
+        //idxEdit = null;
+        //document.querySelector('[type="submit"]').value = "Add";
+    }
 }
