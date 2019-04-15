@@ -232,7 +232,7 @@ async function preiaProduseAdmin() {
                         </tr>
                     </thead>
                     <tbody>
-                        
+
                     </tbody>
                 </table>
             `;
