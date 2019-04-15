@@ -100,6 +100,7 @@ function adaugaInCos(id, nume, pret) {
         for(let i in produse) {
             if(produse[i].id === produs.id) {
                 produse[i].cantitate = Number(produse[i].cantitate) + Number(produs.cantitate);
+                produse[i].subtotal = produse[i].pret * produse[i].cantitate;
                 existaProdus = true;
                 break;
             }
