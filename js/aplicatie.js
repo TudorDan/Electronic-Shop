@@ -287,7 +287,7 @@ function afiseazaFormular(id) {
     let stergeAntet = document.querySelector('#antet');
     stergeAntet.style.display = 'none';
     let tabel = document.querySelector('table');
-    formular.style.display = '';
+    formular.style.display = ''; //stergem "display:none;" din admin.html
     tabel.style.display = 'none';
 }
 
@@ -297,13 +297,13 @@ function afiseazaTabel() {
     idProdus = null;
     document.querySelector('[type="submit"]').value = 'Adaugă';
     document.querySelector('form').style.display = 'none';
-    document.querySelector('table').style.display = '';
+    document.querySelector('table').style.display = ''; //stergem "display:none;"
 }
 
 async function adaugaInBaza(event) {
     event.preventDefault();
-    let stergeAntet = document.querySelector('#antet');
-    stergeAntet.style.display = 'none';
+    let stergeAntet = document.querySelector('#antet'); //poate fi sters
+    stergeAntet.style.display = 'none'; //poate fi sters
 
     let produs = {};
     produs.descriere = document.querySelector('[name="descriere"]').value;

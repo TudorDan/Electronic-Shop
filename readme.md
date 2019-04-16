@@ -30,10 +30,12 @@ You can access the website [here](https://tudordan.github.io/Electronic-Shop/).
 1. index.html:
     - [x] carousel buttons on small screen widths (get out of frame).
     - [ ] *Details* buttons on different product titles lengths (no longer stay to the bottom of the div).
+    - [ ] loading gif for Ajax not working offline.
     - [x] header links not filling the buttons (entire width and height).
 2. details.html:
     - [x] header links not filling the buttons (entire width and height).
     - [ ] background image on small screen widths (isn't contained).
+    - [ ] loading gif for Ajax not working offline.
 3. cart.html:
     - [x] header links not filling the buttons (entire width and height).
     - [x] same product is added several times to the cart (if _Cumpără_ button is clicked on different ocasions).
@@ -41,6 +43,8 @@ You can access the website [here](https://tudordan.github.io/Electronic-Shop/).
 4. admin.html:
     - [x] header links not filling the buttons (entire width and height).
     - [x] small screen widths form responsiveness.
+    - [ ] loading gif for Ajax not working offline.
+    - [ ] nonexistent prompt for product deletion confirmation
 
 
 
