@@ -17,19 +17,22 @@ function preiaProdusele() {
         .then(response => response.json())
         .then(produse => {
             //console.log(produse);
-            zonaProduse.innerHTML = '';
-            for(let i in produse) {
-                zonaProduse.innerHTML += `
-                    <div class="articolComercial">
-                        <img src="${produse[i].imagine}">
-                        <h2>${produse[i].nume}</h2>
-                        <p>${produse[i].pret}&nbsp;&euro;</p>
-                        <button>
-                            <a href="details.html?id=${i}">Detalii</a>
-                        </button>
-                    </div>
-                `;
-            }
+            setTimeout( () => {
+                zonaProduse.innerHTML = '';
+                for(let i in produse) {
+                    zonaProduse.innerHTML += `
+                        <div class="articolComercial">
+                            <img src="${produse[i].imagine}">
+                            <h2>${produse[i].nume}</h2>
+                            <p>${produse[i].pret}&nbsp;&euro;</p>
+                            <button>
+                                <a href="details.html?id=${i}">Detalii</a>
+                            </button>
+                        </div>
+                    `;
+                }
+            }, 4000);
+            
         })
         .catch(error => {
             console.log('There was an error: ', error);
@@ -62,17 +65,19 @@ function incarcaProdus() {
         })
         .then(response => response.json())
         .then(produs => {
-            console.log(produs);
-            document.querySelector('#imagine').src = produs.imagine;
-            zonaProdus.innerHTML = '';
-            zonaProdus.innerHTML = `
-                <h2>${produs.nume}</h2>
-                <p>${produs.descriere}</p>
-                <p>${produs.pret}&nbsp;&euro;</p>
-                <p>În stoc: ${produs.stoc} buc.</p>
-                <p>Cantitate: <input type="number" value="1" min="1" max="${produs.stoc}"></p>
-                <button onclick="adaugaInCos('${id}', '${produs.nume}', ${produs.pret});">Adaugă în coș</button>
-            `;
+            //console.log(produs);
+            setTimeout( () => {
+                document.querySelector('#imagine').src = produs.imagine;
+                zonaProdus.innerHTML = '';
+                zonaProdus.innerHTML = `
+                    <h2>${produs.nume}</h2>
+                    <p>${produs.descriere}</p>
+                    <p>${produs.pret}&nbsp;&euro;</p>
+                    <p>În stoc: ${produs.stoc} buc.</p>
+                    <p>Cantitate: <input type="number" value="1" min="1" max="${produs.stoc}"></p>
+                    <button onclick="adaugaInCos('${id}', '${produs.nume}', ${produs.pret});">Adaugă în coș</button>
+                `;
+            }, 4000);
         })
         .catch(error => {
             console.log('There was an error: ', error);
@@ -221,42 +226,44 @@ async function preiaProduseAdmin() {
             throw new Error(raspuns.statusText);
         } else {
             produse = await raspuns.json();
-            zonaProduse.innerHTML = `
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Imagine</th>
-                            <th>Nume</th>
-                            <th>Preț</th>
-                            <th>Cantitate</th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
+            setTimeout( () => {
+                zonaProduse.innerHTML = `
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Imagine</th>
+                                <th>Nume</th>
+                                <th>Preț</th>
+                                <th>Cantitate</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
 
-                    </tbody>
-                </table>
-            `;
-            let tbody = document.querySelector('tbody');
-            for(let id in produse) {
-                tbody.innerHTML += `
-                    <tr>
-                        <td><img src="${produse[id].imagine}" height="30px"></td>
-                        <td><a href="#" onclick="afiseazaFormular('${id}');">${produse[id].nume}</a></td>
-                        <td>${produse[id].pret}&nbsp;&euro;</td>
-                        <td>${produse[id].stoc}</td>
-                        <td><button onclick="stergeProdusAdmin('${id}');">Șterge</button></td>
-                    </tr>
+                        </tbody>
+                    </table>
                 `;
-            }
-            //colorăm alternativ rândurile și setăm CSS
-            let linii = document.querySelectorAll('tbody tr');
-            for(let j = 0; j < linii.length; j++) {
-                if(j % 2 !== 0) {
-                    linii[j].style.backgroundColor = '#CCF1FA';
+                let tbody = document.querySelector('tbody');
+                for(let id in produse) {
+                    tbody.innerHTML += `
+                        <tr>
+                            <td><img src="${produse[id].imagine}" height="30px"></td>
+                            <td><a href="#" onclick="afiseazaFormular('${id}');">${produse[id].nume}</a></td>
+                            <td>${produse[id].pret}&nbsp;&euro;</td>
+                            <td>${produse[id].stoc}</td>
+                            <td><button onclick="stergeProdusAdmin('${id}');">Șterge</button></td>
+                        </tr>
+                    `;
                 }
-                linii[j].cells[4].style.textAlign = 'center';
-            }
+                //colorăm alternativ rândurile și setăm CSS
+                let linii = document.querySelectorAll('tbody tr');
+                for(let j = 0; j < linii.length; j++) {
+                    if(j % 2 !== 0) {
+                        linii[j].style.backgroundColor = '#CCF1FA';
+                    }
+                    linii[j].cells[4].style.textAlign = 'center';
+                }
+            },4000);
         }
     } catch(error) {
         console.log('Eroare: ', error);
