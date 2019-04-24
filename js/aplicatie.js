@@ -358,7 +358,7 @@ async function adaugaInBaza(event) {
 }
 
 async function stergeProdusAdmin(id, nume) {
-    if(window.confirm(`Stergeți produsul ${nume}?`)) {
+    if(window.confirm(`Stergeți produsul „${nume}” din baza de date a magazinului?`)) {
         let url = `https://magazinelectronic-fa84a.firebaseio.com/produse/${id}.json`;
         try{
             //stergere produs existent
