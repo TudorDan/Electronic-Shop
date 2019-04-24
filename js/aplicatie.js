@@ -31,7 +31,7 @@ function preiaProdusele() {
                         </div>
                     `;
                 }
-            }, 2500);
+            }, 3000);
             
         })
         .catch(error => {
@@ -77,7 +77,7 @@ function incarcaProdus() {
                     <p>Cantitate: <input type="number" value="1" min="1" max="${produs.stoc}"></p>
                     <button onclick="adaugaInCos('${id}', '${produs.nume}', ${produs.pret});">Adaugă în coș</button>
                 `;
-            }, 2500);
+            }, 3000);
         })
         .catch(error => {
             console.log('There was an error: ', error);
@@ -263,7 +263,7 @@ async function preiaProduseAdmin() {
                     }
                     linii[j].cells[4].style.textAlign = 'center';
                 }
-            }, 2500);
+            }, 3000);
         }
     } catch(error) {
         console.log('Eroare: ', error);
