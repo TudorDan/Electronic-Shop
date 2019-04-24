@@ -31,7 +31,7 @@ function preiaProdusele() {
                         </div>
                     `;
                 }
-            }, 4000);
+            }, 2500);
             
         })
         .catch(error => {
@@ -77,7 +77,7 @@ function incarcaProdus() {
                     <p>Cantitate: <input type="number" value="1" min="1" max="${produs.stoc}"></p>
                     <button onclick="adaugaInCos('${id}', '${produs.nume}', ${produs.pret});">Adaugă în coș</button>
                 `;
-            }, 4000);
+            }, 2500);
         })
         .catch(error => {
             console.log('There was an error: ', error);
@@ -251,7 +251,7 @@ async function preiaProduseAdmin() {
                             <td><a href="#" onclick="afiseazaFormular('${id}');">${produse[id].nume}</a></td>
                             <td>${produse[id].pret}&nbsp;&euro;</td>
                             <td>${produse[id].stoc}</td>
-                            <td><button onclick="stergeProdusAdmin('${id}');">Șterge</button></td>
+                            <td><button onclick="stergeProdusAdmin('${id}','${produse[id].nume}');">Șterge</button></td>
                         </tr>
                     `;
                 }
@@ -263,7 +263,7 @@ async function preiaProduseAdmin() {
                     }
                     linii[j].cells[4].style.textAlign = 'center';
                 }
-            },4000);
+            }, 2500);
         }
     } catch(error) {
         console.log('Eroare: ', error);
@@ -357,18 +357,20 @@ async function adaugaInBaza(event) {
     }
 }
 
-async function stergeProdusAdmin(id) {
-    let url = `https://magazinelectronic-fa84a.firebaseio.com/produse/${id}.json`;
-    try{
-        //stergere produs existent
-        let raspuns = await fetch(url,{
-            method: "DELETE"
-        });
-        if(!raspuns.ok) {
-            throw new Error(raspuns.statusText);
+async function stergeProdusAdmin(id, nume) {
+    if(window.confirm(`Stergeți produsul ${nume}?`)) {
+        let url = `https://magazinelectronic-fa84a.firebaseio.com/produse/${id}.json`;
+        try{
+            //stergere produs existent
+            let raspuns = await fetch(url,{
+                method: "DELETE"
+            });
+            if(!raspuns.ok) {
+                throw new Error(raspuns.statusText);
+            }
+        } catch(error) {
+            console.log('Eroare (DELETE): ', error);
         }
-    } catch(error) {
-        console.log('Eroare (DELETE): ', error);
+        await preiaProduseAdmin();
     }
-    await preiaProduseAdmin();
 }
